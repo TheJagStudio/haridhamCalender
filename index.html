@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haridham Calender</title>
+    <link rel="icon" type="image/x-icon" href="./static/SHA_logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <style>
+        .scroller {
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .scroller::-webkit-scrollbar { 
+            display: none;  /* Safari and Chrome */
+        }
+    </style>
+</head>
+<body style="font-family: sans-serif;" class="overflow-hidden w-screen">
+    <div class="bg-[#f79433] h-14 relative shadow-xl mb-3">
+        <h1 class="text-white font-bold text-2xl w-full text-center pt-3">Haridham Calender</h1>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="absolute top-3 left-2" viewBox="0 0 16 16">
+            <path stroke="white" fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+    </div>
+    <div class="swiper mySwiper scroller overflow-hidden w-screen">
+        <div class="swiper-wrapper flex">
+            <div class="swiper-slide">
+                <div class="w-full mt-2">
+                    <h1 class="w-full text-center align-middle py-1-xl font-bold text-slate-800">January 2023</h1>
+                    <h1 class="w-full text-center align-middle py-1-sm text-slate-500">VS-2079 - Posh-Maha</h1>
+                </div>
+                <div class="mt-3 w-screen flex-none">
+                    <div class="w-full px-3">
+                        <div class="flex flex-no wrap w-full justify-between">
+                            <div class="w-full text-center text-blue-500 font-bold text-lg">Mon</div>
+                            <div class="w-full text-center text-blue-500 font-bold text-lg">Tue</div>
+                            <div class="w-full text-center text-blue-500 font-bold text-lg">Wed</div>
+                            <div class="w-full text-center text-blue-500 font-bold text-lg">Thu</div>
+                            <div class="w-full text-center text-blue-500 font-bold text-lg">Fri</div>
+                            <div class="w-full text-center text-blue-500 font-bold text-lg">Sat</div>
+                            <div class="w-full text-center text-blue-500 font-bold text-lg">Sun</div>
+                        </div>
+                        <div class="flex flex-nowrap justify-between gap-1">
+                            <div class="w-full"></div>
+                            <div class="w-full"></div>
+                            <div class="w-full"></div>
+                            <div class="w-full"></div>
+                            <div class="w-full"></div>
+                            <div class="w-full"></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">1<div class="text-xs text-slate-500">Dasham</div></div>
+                        </div>
+                        <div class="flex flex-nowrap justify-between gap-1">
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip  border-2 border-[#f79433] bg-orange-200/75">2<div class="text-xs text-slate-500">Ekadashi</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">3<div class="text-xs text-slate-500">Baras</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">4<div class="text-xs text-slate-500">Teras</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">5<div class="text-xs text-slate-500">Chaudas</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip "><img src="./static/GunatitSwami.png" class="p-1 h-auto w-fit mx-auto"></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">7<div class="text-xs text-slate-500">Padvo</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip "><img src="./static/AYMLogo.png" class="p-1 h-auto w-fit mx-auto"></div>
+                        </div>
+                        <div class="flex flex-nowrap justify-between gap-1">
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">9<img src="./static/SHA_logo.png" class="p-1 h-auto w-fit mx-auto"></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">10<div class="text-xs text-slate-500">Trij</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">11<div class="text-xs text-slate-500">Choth</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">12<div class="text-xs text-slate-500">Pancham</div><div class="text-[8px] leading-3 text-blue-500">Swami Vivekanand Jayanti</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">13<div class="text-xs text-slate-500">Chhath</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip "><img src="./static/kite.png" class="p-1 h-auto w-fit mx-auto"></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">15<div class="text-xs text-slate-500">Aatham</div></div>
+                        </div>
+                        <div class="flex flex-nowrap justify-between gap-1">
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">16<div class="text-xs text-slate-500">Nom</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">17<div class="text-xs text-slate-500">Dasham</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip  bg-orange-200/75">18<div class="text-xs text-slate-500">Ekadashi</div><div class="text-[8px] leading-3 text-blue-500">Shattila Ekadashi</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">19<div class="text-xs text-slate-500">Baras</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">20<div class="text-xs text-slate-500">Teras</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip  bg-slate-200">21<div class="text-xs text-slate-500">Amas</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">22<div class="text-xs text-slate-500">Padvo</div></div>
+                        </div>
+                        <div class="flex flex-nowrap justify-between gap-1">
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip "><img src="./static/yogijiMaharaj.png" class="p-1 h-auto w-fit mx-auto"></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">24<div class="text-xs text-slate-500">Trij</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">25<div class="text-xs text-slate-500">Choth</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip "><img src="./static/shastrijiMaharaj.png" class="p-1 h-auto w-fit mx-auto"></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">27<div class="text-xs text-slate-500">Chhath</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">28<div class="text-xs text-slate-500">Satam</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip "><img src="./static/gopalanadSwami.png" class="p-1 h-auto w-fit mx-auto"></div>
+                        </div>
+                        <div class="flex flex-nowrap justify-between gap-1">
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">30<div class="text-xs text-slate-500">Nom</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">31<div class="text-xs text-slate-500">Dasham</div></div>
+                            <div class="w-full"></div>
+                            <div class="w-full"></div>
+                            <div class="w-full"></div>
+                            <div class="w-full"></div>
+                            <div class="w-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="w-full mt-2">
+                    <h1 class="w-full text-center align-middle py-1-xl font-bold text-slate-800">February 2023</h1>
+                    <h1 class="w-full text-center align-middle py-1-sm text-slate-500">VS-2079 - Maha-Fagan</h1>
+                </div>
+                <div class="swiper-slide mt-3 w-screen flex-none">
+                    <div class="w-full px-5">
+                        <div class="flex flex-no wrap w-full justify-between">
+                            <div class="w-full text-center text-blue-500 font-bold text-lg">Mon</div>
+                            <div class="w-full text-center text-blue-500 font-bold text-lg">Tue</div>
+                            <div class="w-full text-center text-blue-500 font-bold text-lg">Wed</div>
+                            <div class="w-full text-center text-blue-500 font-bold text-lg">Thu</div>
+                            <div class="w-full text-center text-blue-500 font-bold text-lg">Fri</div>
+                            <div class="w-full text-center text-blue-500 font-bold text-lg">Sat</div>
+                            <div class="w-full text-center text-blue-500 font-bold text-lg">Sun</div>
+                        </div>
+                        <div class="flex flex-nowrap justify-between gap-1">
+                            <div class="w-full"></div>
+                            <div class="w-full"></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip bg-orange-200/75">1<div class="text-xs text-slate-500">Ekadashi</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">2<div class="text-xs text-slate-500">Baras</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">3<div class="text-xs text-slate-500">Teras</div><div class="text-[8px] leading-3 text-blue-500">Swami Vishwakarma Jayanti</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">4<div class="text-xs text-slate-500">Chaudas</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip bg-slate-200">5<div class="text-xs text-slate-500">Poonam</div></div>
+                        </div>
+                        <div class="flex flex-nowrap justify-between gap-1">
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">6<div class="text-xs text-slate-500">Padvo</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">7<div class="text-xs text-slate-500">Bij</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">8<div class="text-xs text-slate-500">Trij</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">9<img src="./static/SHA_logo.png" class="p-1 h-auto w-fit mx-auto"></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">10<div class="text-xs text-slate-500">Choth</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">11<div class="text-xs text-slate-500">Pancham</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">12<div class="text-xs text-slate-500">Chhath</div></div>
+                        </div>
+                        <div class="flex flex-nowrap justify-between gap-1">
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">13<div class="text-xs text-slate-500">Satam</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">14<div class="text-xs text-slate-500">Aatham</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">15<div class="text-xs text-slate-500">Nom</div><div class="text-[8px] leading-3 text-blue-500">Swami Aksharvihari Swami Pragatya Din</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip bg-orange-200/75">16<div class="text-xs text-slate-500">Ekadashi</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">17<img src="./static/SHA_logo.png" class="p-1 h-auto w-fit mx-auto"></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip"><img src="./static/shiv.png" class="p-1 h-auto w-fit mx-auto"></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip "><img src="./static/shastrijiMaharaj.png" class="p-1 h-auto w-fit mx-auto"></div>
+                        </div>
+                        <div class="flex flex-nowrap justify-between gap-1">
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip bg-slate-200">20<div class="text-xs text-slate-500">Amas</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">21<div class="text-xs text-slate-500">Padvo</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">22<div class="text-xs text-slate-500">Trij</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">23<div class="text-xs text-slate-500">Choth</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">24<img src="./static/SHA_logo.png" class="p-1 h-auto w-fit mx-auto"></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">25<div class="text-xs text-slate-500">Chhath</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">26<div class="text-xs text-slate-500">Satam</div><div class="text-[8px] leading-3 text-blue-500">Holashtak Betha</div></div>
+                        </div>
+                        <div class="flex flex-nowrap justify-between gap-1">
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">27<div class="text-xs text-slate-500">Aatham</div></div>
+                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">28<div class="text-xs text-slate-500">Nom</div></div>
+                            <div class="w-full"></div>
+                            <div class="w-full"></div>
+                            <div class="w-full"></div>
+                            <div class="w-full"></div>
+                            <div class="w-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {});
+    </script>
+</body>
+</html>
