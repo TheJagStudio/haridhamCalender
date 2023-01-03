@@ -20,19 +20,56 @@
         }
     </style>
 </head>
-<body style="font-family: sans-serif;" class="overflow-hidden w-screen">
-    <div class="bg-[#f79433] h-14 relative shadow-xl mb-3">
+<body style="font-family: sans-serif;" class="scroller overflow-x-hidden w-screen h-screen">
+    <div class="bg-[#f79433] h-14 sticky top-0 z-50 shadow-xl mb-3">
         <h1 class="text-white font-bold text-2xl w-full text-center pt-3">Haridham Calender</h1>
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="absolute top-3 left-2" viewBox="0 0 16 16">
             <path stroke="white" fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
         </svg>
     </div>
     <div class="swiper mySwiper scroller overflow-hidden w-screen">
-        <div class="swiper-wrapper flex">
-            <div class="swiper-slide">
-                <div class="w-full mt-2">
-                    <h1 class="w-full text-center align-middle py-1-xl font-bold text-slate-800">January 2023</h1>
-                    <h1 class="w-full text-center align-middle py-1-sm text-slate-500">VS-2079 - Posh-Maha</h1>
+        <div id="CalenderContainer" class="swiper-wrapper flex">
+        </div>
+    </div>
+    <hr>
+    <div class="w-full h-fit pb-5">
+        <div class="flex flex-nowrap justify-between py-3 mx-5">
+            <button class="bg-red-200 px-5 text-red-800 rounded-md border border-red-800">Info</button>
+            <h1 id="BelowDate" class="font-thin text-xl">3 - 1 - 2023</h1>
+            <button onclick="selectToday()" class="bg-blue-200 px-5 text-blue-800 rounded-md border border-blue-800">Today</button>
+        </div>
+        <div id="eventContainer" class="relative h-full">
+            <div class="rounded-lg border border-l-[6px] border-slate-500 shadow-lg mx-5 py-1 px-3 mt-3">3 - Posh Sud Baras</div>
+            <div class="rounded-lg border border-l-[6px] border-orange-400 shadow-lg mx-5 py-1 px-3 mt-2">3 - Posh Sud Baras</div>
+            <div class="rounded-lg border border-l-[6px] border-orange-400 shadow-lg mx-5 py-1 px-3 mt-2">3 - Posh Sud Baras</div>
+            <div class="rounded-lg border border-l-[6px] border-blue-500 shadow-lg mx-5 py-1 px-3 mt-2">3 - Posh Sud Baras</div>
+            <div class="rounded-lg border border-l-[6px] border-blue-500 shadow-lg mx-5 py-1 px-3 mt-2">3 - Posh Sud Baras</div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {});
+    </script>
+    <script>
+        let emptyDate = '<div class="w-full"></div>'
+        let normalDate = '<div id="%%FullDate%%" onclick="changeData(this)" class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-slate-800 transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip bg-%%Color%%">%%Date%%<div class="text-xs text-slate-500">%%Day%%</div></div>'
+        let multipleDate = '<div id="%%FullDate%%" onclick="changeData(this)" class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-slate-800 transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip bg-%%Color%%">%%Date%%<div class="text-xs text-slate-500">%%Day%%</div><div class="text-[8px] leading-3 text-blue-500">%%Event%%</div></div>'
+        let templeDate = '<div id="%%FullDate%%" onclick="changeData(this)" class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-slate-800 transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip bg-%%Color%%">%%Date%%<img src="./static/SHA_logo.png" class="p-1 h-auto w-[70%] mx-auto"></div>'
+        let imageDate = '<div id="%%FullDate%%" onclick="changeData(this)" class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-slate-800 transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip bg-%%Color%%"><img src="%%Url%%" class="p-1 h-auto max-h-fit w-[70%] mx-auto"></div>'
+        let event = '<div class="rounded-lg border border-l-[6px] border-%%Color%% shadow-lg mx-5 py-1 px-3 mt-3">%%Event%%</div>'
+        let CalenderData = ""
+        fetch('./static/data.json')
+            .then(response => response.json())
+            .then(data => {
+            CalenderData = data;
+            for (const year in data) {
+                for (const month in data[year]) {
+                    let html =''
+                    html+=`<div id="`+month+`" class="swiper-slide">
+                        <div class="w-full mt-2">
+                    <h1 class="w-full text-center align-middle py-1-xl font-bold text-slate-800">`+month+` `+year+`</h1>
+                    <h1 class="w-full text-center align-middle py-1-sm text-slate-500">`+data[year][month]['GujName']+`</h1>
                 </div>
                 <div class="mt-3 w-screen flex-none">
                     <div class="w-full px-3">
@@ -44,135 +81,125 @@
                             <div class="w-full text-center text-blue-500 font-bold text-lg">Fri</div>
                             <div class="w-full text-center text-blue-500 font-bold text-lg">Sat</div>
                             <div class="w-full text-center text-blue-500 font-bold text-lg">Sun</div>
-                        </div>
-                        <div class="flex flex-nowrap justify-between gap-1">
-                            <div class="w-full"></div>
-                            <div class="w-full"></div>
-                            <div class="w-full"></div>
-                            <div class="w-full"></div>
-                            <div class="w-full"></div>
-                            <div class="w-full"></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">1<div class="text-xs text-slate-500">Dasham</div></div>
-                        </div>
-                        <div class="flex flex-nowrap justify-between gap-1">
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip  border-2 border-[#f79433] bg-orange-200/75">2<div class="text-xs text-slate-500">Ekadashi</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">3<div class="text-xs text-slate-500">Baras</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">4<div class="text-xs text-slate-500">Teras</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">5<div class="text-xs text-slate-500">Chaudas</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip "><img src="./static/GunatitSwami.png" class="p-1 h-auto w-fit mx-auto"></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">7<div class="text-xs text-slate-500">Padvo</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip "><img src="./static/AYMLogo.png" class="p-1 h-auto w-fit mx-auto"></div>
-                        </div>
-                        <div class="flex flex-nowrap justify-between gap-1">
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">9<img src="./static/SHA_logo.png" class="p-1 h-auto w-fit mx-auto"></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">10<div class="text-xs text-slate-500">Trij</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">11<div class="text-xs text-slate-500">Choth</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">12<div class="text-xs text-slate-500">Pancham</div><div class="text-[8px] leading-3 text-blue-500">Swami Vivekanand Jayanti</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">13<div class="text-xs text-slate-500">Chhath</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip "><img src="./static/kite.png" class="p-1 h-auto w-fit mx-auto"></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">15<div class="text-xs text-slate-500">Aatham</div></div>
-                        </div>
-                        <div class="flex flex-nowrap justify-between gap-1">
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">16<div class="text-xs text-slate-500">Nom</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">17<div class="text-xs text-slate-500">Dasham</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip  bg-orange-200/75">18<div class="text-xs text-slate-500">Ekadashi</div><div class="text-[8px] leading-3 text-blue-500">Shattila Ekadashi</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">19<div class="text-xs text-slate-500">Baras</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">20<div class="text-xs text-slate-500">Teras</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip  bg-slate-200">21<div class="text-xs text-slate-500">Amas</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">22<div class="text-xs text-slate-500">Padvo</div></div>
-                        </div>
-                        <div class="flex flex-nowrap justify-between gap-1">
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip "><img src="./static/yogijiMaharaj.png" class="p-1 h-auto w-fit mx-auto"></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">24<div class="text-xs text-slate-500">Trij</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">25<div class="text-xs text-slate-500">Choth</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip "><img src="./static/shastrijiMaharaj.png" class="p-1 h-auto w-fit mx-auto"></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">27<div class="text-xs text-slate-500">Chhath</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">28<div class="text-xs text-slate-500">Satam</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip "><img src="./static/gopalanadSwami.png" class="p-1 h-auto w-fit mx-auto"></div>
-                        </div>
-                        <div class="flex flex-nowrap justify-between gap-1">
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">30<div class="text-xs text-slate-500">Nom</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">31<div class="text-xs text-slate-500">Dasham</div></div>
-                            <div class="w-full"></div>
-                            <div class="w-full"></div>
-                            <div class="w-full"></div>
-                            <div class="w-full"></div>
-                            <div class="w-full"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="w-full mt-2">
-                    <h1 class="w-full text-center align-middle py-1-xl font-bold text-slate-800">February 2023</h1>
-                    <h1 class="w-full text-center align-middle py-1-sm text-slate-500">VS-2079 - Maha-Fagan</h1>
-                </div>
-                <div class="swiper-slide mt-3 w-screen flex-none">
-                    <div class="w-full px-5">
-                        <div class="flex flex-no wrap w-full justify-between">
-                            <div class="w-full text-center text-blue-500 font-bold text-lg">Mon</div>
-                            <div class="w-full text-center text-blue-500 font-bold text-lg">Tue</div>
-                            <div class="w-full text-center text-blue-500 font-bold text-lg">Wed</div>
-                            <div class="w-full text-center text-blue-500 font-bold text-lg">Thu</div>
-                            <div class="w-full text-center text-blue-500 font-bold text-lg">Fri</div>
-                            <div class="w-full text-center text-blue-500 font-bold text-lg">Sat</div>
-                            <div class="w-full text-center text-blue-500 font-bold text-lg">Sun</div>
-                        </div>
-                        <div class="flex flex-nowrap justify-between gap-1">
-                            <div class="w-full"></div>
-                            <div class="w-full"></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip bg-orange-200/75">1<div class="text-xs text-slate-500">Ekadashi</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">2<div class="text-xs text-slate-500">Baras</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">3<div class="text-xs text-slate-500">Teras</div><div class="text-[8px] leading-3 text-blue-500">Swami Vishwakarma Jayanti</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">4<div class="text-xs text-slate-500">Chaudas</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip bg-slate-200">5<div class="text-xs text-slate-500">Poonam</div></div>
-                        </div>
-                        <div class="flex flex-nowrap justify-between gap-1">
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">6<div class="text-xs text-slate-500">Padvo</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">7<div class="text-xs text-slate-500">Bij</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">8<div class="text-xs text-slate-500">Trij</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">9<img src="./static/SHA_logo.png" class="p-1 h-auto w-fit mx-auto"></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">10<div class="text-xs text-slate-500">Choth</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">11<div class="text-xs text-slate-500">Pancham</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">12<div class="text-xs text-slate-500">Chhath</div></div>
-                        </div>
-                        <div class="flex flex-nowrap justify-between gap-1">
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">13<div class="text-xs text-slate-500">Satam</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">14<div class="text-xs text-slate-500">Aatham</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">15<div class="text-xs text-slate-500">Nom</div><div class="text-[8px] leading-3 text-blue-500">Swami Aksharvihari Swami Pragatya Din</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip bg-orange-200/75">16<div class="text-xs text-slate-500">Ekadashi</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">17<img src="./static/SHA_logo.png" class="p-1 h-auto w-fit mx-auto"></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip"><img src="./static/shiv.png" class="p-1 h-auto w-fit mx-auto"></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip "><img src="./static/shastrijiMaharaj.png" class="p-1 h-auto w-fit mx-auto"></div>
-                        </div>
-                        <div class="flex flex-nowrap justify-between gap-1">
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip bg-slate-200">20<div class="text-xs text-slate-500">Amas</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">21<div class="text-xs text-slate-500">Padvo</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">22<div class="text-xs text-slate-500">Trij</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">23<div class="text-xs text-slate-500">Choth</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">24<img src="./static/SHA_logo.png" class="p-1 h-auto w-fit mx-auto"></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">25<div class="text-xs text-slate-500">Chhath</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">26<div class="text-xs text-slate-500">Satam</div><div class="text-[8px] leading-3 text-blue-500">Holashtak Betha</div></div>
-                        </div>
-                        <div class="flex flex-nowrap justify-between gap-1">
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">27<div class="text-xs text-slate-500">Aatham</div></div>
-                            <div class="w-full text-center inline-block align-middle h-20 border-2 border-white rounded-lg hover:border-[#f79433] transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 overflow-hidden text-clip ">28<div class="text-xs text-slate-500">Nom</div></div>
-                            <div class="w-full"></div>
-                            <div class="w-full"></div>
-                            <div class="w-full"></div>
-                            <div class="w-full"></div>
-                            <div class="w-full"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".mySwiper", {});
+                        </div>`
+                    totalDay = data[year][month]["days"];
+                    startEmpty = data[year][month]["startEmpty"];
+                    endEmpty = data[year][month]["endEmpty"];
+                    let counter = startEmpty;
+                    let emptyConsider = 0;
+                    html+='<div class="flex flex-nowrap justify-between gap-1">'
+                    for (const date in data[year][month]) {
+                        if(counter==7)
+                        {
+                            html+='</div><div class="flex flex-nowrap justify-between gap-1">'
+                            counter=0
+                        }
+                        if(emptyConsider==0)
+                        {
+                            for(i=0;i<startEmpty;i++)
+                            {
+                                html+=emptyDate
+                            }
+                            emptyConsider=1
+                        }
+                        if (!isNaN(date)){
+                            if(data[year][month][date]["type"]=="normalDate")
+                            {
+                                if(data[year][month][date]["data"][0]=="Ekadashi")
+                                {
+                                    html+=normalDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%Color%%","orange-200/75").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0])
+                                }
+                                else if (data[year][month][date]["data"][0]=="Amas")
+                                {
+                                    html+=normalDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%Color%%","slate-200").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0])
+                                }
+                                else
+                                {
+                                    html+=normalDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%Color%%","white").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0])
+                                }
+                            }
+                            else if(data[year][month][date]["type"]=="multipleDate")
+                            {
+                                if(data[year][month][date]["data"][0]=="Ekadashi")
+                                {
+                                    html+=multipleDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%Color%%","orange-200/75").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("%%Event%%",data[year][month][date]["data"][1])
+                                }
+                                else if (data[year][month][date]["data"][0]=="Amas")
+                                {
+                                    html+=multipleDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%Color%%","slate-200").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("%%Event%%",data[year][month][date]["data"][1])
+                                }
+                                else
+                                {
+                                    html+=multipleDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%Color%%","white").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("%%Event%%",data[year][month][date]["data"][1])
+                                }
+                            }
+                            else if(data[year][month][date]["type"]=="imageDate")
+                            {
+                                html+=imageDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%Color%%","white").replace("%%Url%%",data[year][month][date]["data"][0])
+                            }
+                            else if(data[year][month][date]["type"]=="templeDate")
+                            {
+                                html+=templeDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%Color%%","white").replace("%%Date%%",Number(date))
+                            }
+                            else
+                            {
+                                console.log("Invalid")
+                            }
+                        }
+                        counter++
+                        
+                    }
+                    for(i=0;i<endEmpty;i++)
+                    {
+                        html+=emptyDate
+                    }
+                    html+='</div></div></div>'
+                    document.getElementById("CalenderContainer").innerHTML+=html
+                }
+            }
+        });
+        const monthNames = ['January', 'February', 'March','April', 'May', 'June', 'July','August', 'September', 'October','November', 'December'];
+        const today = new Date();
+        const day = today.getDate();
+        const month = today.getMonth() ; // January is 0
+        const year = today.getFullYear();
+        window.onload = function(){
+            document.getElementById((parseInt(day).toString()+"/"+monthNames[month]+"/"+year.toString()).toString()).classList.toggle("border-white")
+            document.getElementById((parseInt(day).toString()+"/"+monthNames[month]+"/"+year.toString()).toString()).classList.add("border-[#f79433]")
+            document.getElementById("BelowDate").innerHTML = day + " - " + (month+1) + " - " + year
+        };
+        swiper.slideTo(month);
+        previousElement = ""
+        function changeData(element)
+        {
+            if(previousElement!="")
+            {
+                previousElement.classList.toggle("border-white")
+                previousElement.classList.toggle("border-slate-800")
+            }
+            element.classList.toggle("border-white")
+            element.classList.toggle("border-slate-800")
+            tempData = element.id.split("/")
+            events = CalenderData[tempData[2]][tempData[1]][tempData[0]]["data"]
+            html = ""
+            for(const i in events)
+            {
+                html += event.replace("%%Color%%","orange-400").replace("%%Event%%",events[i])
+            }
+            document.getElementById("eventContainer").innerHTML = html
+            const today = new Date(element.id);
+            const day = today.getDate();
+            const month = today.getMonth() ; // January is 0
+            const year = today.getFullYear();
+            document.getElementById("BelowDate").innerHTML = day + " - " + (month+1) + " - " + year
+            previousElement = element
+        }
+        function selectToday()
+        {
+            document.getElementsByClassName("border-[#f79433]")[0].click()
+            document.getElementsByClassName("border-[#f79433]")[0].click()
+            swiper.slideTo(month);
+        }
     </script>
 </body>
 </html>

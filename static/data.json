@@ -1,0 +1,544 @@
+{
+    "2023": {
+        "January": {
+            "GujName": "VS-2079 - Posh-Maha",
+            "startEmpty": 6,
+            "endEmpty": 5,
+            "days": 31,
+            "1": {
+                "data": [
+                    "Dasham"
+                ],
+                "type": "normalDate"
+            },
+            "2": {
+                "data": [
+                    "Ekadashi"
+                ],
+                "type": "normalDate"
+            },
+            "3": {
+                "data": [
+                    "Baras"
+                ],
+                "type": "normalDate"
+            },
+            "4": {
+                "data": [
+                    "Teras"
+                ],
+                "type": "normalDate"
+            },
+            "5": {
+                "data": [
+                    "Chaudas"
+                ],
+                "type": "normalDate"
+            },
+            "6": {
+                "data": [
+                    "./static/GunatitSwami.png"
+                ],
+                "type": "imageDate"
+            },
+            "7": {
+                "data": [
+                    "Padvo"
+                ],
+                "type": "normalDate"
+            },
+            "8": {
+                "data": [
+                    "./static/AYMLogo.png"
+                ],
+                "type": "imageDate"
+            },
+            "9": {
+                "data": [],
+                "type": "templeDate"
+            },
+            "10": {
+                "data": [
+                    "Trij"
+                ],
+                "type": "normalDate"
+            },
+            "11": {
+                "data": [
+                    "Choth"
+                ],
+                "type": "normalDate"
+            },
+            "12": {
+                "data": [
+                    "Pancham",
+                    "Swami Vivekanand Jayanti"
+                ],
+                "type": "multipleDate"
+            },
+            "13": {
+                "data": [
+                    "Chhath"
+                ],
+                "type": "normalDate"
+            },
+            "14": {
+                "data": [
+                    "./static/kite.png"
+                ],
+                "type": "imageDate"
+            },
+            "15": {
+                "data": [
+                    "Aatham"
+                ],
+                "type": "normalDate"
+            },
+            "16": {
+                "data": [
+                    "Nom"
+                ],
+                "type": "normalDate"
+            },
+            "17": {
+                "data": [
+                    "Dasham"
+                ],
+                "type": "normalDate"
+            },
+            "18": {
+                "data": [
+                    "Ekadashi",
+                    "Shattila Ekadashi"
+                ],
+                "type": "multipleDate"
+            },
+            "19": {
+                "data": [
+                    "Baras"
+                ],
+                "type": "normalDate"
+            },
+            "20": {
+                "data": [
+                    "Teras"
+                ],
+                "type": "normalDate"
+            },
+            "21": {
+                "data": [
+                    "Amas"
+                ],
+                "type": "normalDate"
+            },
+            "22": {
+                "data": [
+                    "Padvo"
+                ],
+                "type": "normalDate"
+            },
+            "23": {
+                "data": [
+                    "./static/yogijiMaharaj.png"
+                ],
+                "type": "imageDate"
+            },
+            "24": {
+                "data": [
+                    "Trij"
+                ],
+                "type": "normalDate"
+            },
+            "25": {
+                "data": [
+                    "Choth"
+                ],
+                "type": "normalDate"
+            },
+            "26": {
+                "data": [
+                    "./static/shastrijiMaharaj.png"
+                ],
+                "type": "imageDate"
+            },
+            "27": {
+                "data": [
+                    "Chhath"
+                ],
+                "type": "normalDate"
+            },
+            "28": {
+                "data": [
+                    "Satam"
+                ],
+                "type": "normalDate"
+            },
+            "29": {
+                "data": [
+                    "./static/gopalanadSwami.png"
+                ],
+                "type": "imageDate"
+            },
+            "30": {
+                "data": [
+                    "Nom"
+                ],
+                "type": "normalDate"
+            },
+            "31": {
+                "data": [
+                    "Dasham"
+                ],
+                "type": "normalDate"
+            }
+        },
+        "February": {
+            "GujName": "VS-2079 - Maha-Fafan",
+            "startEmpty": 2,
+            "endEmpty": 5,
+            "days": 28,
+            "1": {
+                "data": [
+                    "Dasham"
+                ],
+                "type": "normalDate"
+            },
+            "2": {
+                "data": [
+                    "Ekadashi"
+                ],
+                "type": "normalDate"
+            },
+            "3": {
+                "data": [
+                    "Baras"
+                ],
+                "type": "normalDate"
+            },
+            "4": {
+                "data": [
+                    "Teras"
+                ],
+                "type": "normalDate"
+            },
+            "5": {
+                "data": [
+                    "Chaudas"
+                ],
+                "type": "normalDate"
+            },
+            "6": {
+                "data": [
+                    "./static/GunatitSwami.png"
+                ],
+                "type": "imageDate"
+            },
+            "7": {
+                "data": [
+                    "Padvo"
+                ],
+                "type": "normalDate"
+            },
+            "8": {
+                "data": [
+                    "./static/AYMLogo.png"
+                ],
+                "type": "imageDate"
+            },
+            "9": {
+                "data": [],
+                "type": "templeDate"
+            },
+            "10": {
+                "data": [
+                    "Trij"
+                ],
+                "type": "normalDate"
+            },
+            "11": {
+                "data": [
+                    "Choth"
+                ],
+                "type": "normalDate"
+            },
+            "12": {
+                "data": [
+                    "Pancham",
+                    "Swami Vivekanand Jayanti"
+                ],
+                "type": "multipleDate"
+            },
+            "13": {
+                "data": [
+                    "Chhath"
+                ],
+                "type": "normalDate"
+            },
+            "14": {
+                "data": [
+                    "./static/kite.png"
+                ],
+                "type": "imageDate"
+            },
+            "15": {
+                "data": [
+                    "Aatham"
+                ],
+                "type": "normalDate"
+            },
+            "16": {
+                "data": [
+                    "Nom"
+                ],
+                "type": "normalDate"
+            },
+            "17": {
+                "data": [
+                    "Dasham"
+                ],
+                "type": "normalDate"
+            },
+            "18": {
+                "data": [
+                    "Ekadashi",
+                    "Shattila Ekadashi"
+                ],
+                "type": "multipleDate"
+            },
+            "19": {
+                "data": [
+                    "Baras"
+                ],
+                "type": "normalDate"
+            },
+            "20": {
+                "data": [
+                    "Teras"
+                ],
+                "type": "normalDate"
+            },
+            "21": {
+                "data": [
+                    "Amas"
+                ],
+                "type": "normalDate"
+            },
+            "22": {
+                "data": [
+                    "Padvo"
+                ],
+                "type": "normalDate"
+            },
+            "23": {
+                "data": [
+                    "./static/yogijiMaharaj.png"
+                ],
+                "type": "imageDate"
+            },
+            "24": {
+                "data": [
+                    "Trij"
+                ],
+                "type": "normalDate"
+            },
+            "25": {
+                "data": [
+                    "Choth"
+                ],
+                "type": "normalDate"
+            },
+            "26": {
+                "data": [
+                    "./static/shastrijiMaharaj.png"
+                ],
+                "type": "imageDate"
+            },
+            "27": {
+                "data": [
+                    "Chhath"
+                ],
+                "type": "normalDate"
+            },
+            "28": {
+                "data": [
+                    "Satam"
+                ],
+                "type": "normalDate"
+            }
+        },
+        "March": {
+            "GujName": "VS-2079 - Fafan-Chaitra",
+            "startEmpty": 2,
+            "endEmpty": 2,
+            "days": 31,
+            "1": {
+                "data": [
+                    "Dasham"
+                ],
+                "type": "normalDate"
+            },
+            "2": {
+                "data": [
+                    "Ekadashi"
+                ],
+                "type": "normalDate"
+            },
+            "3": {
+                "data": [
+                    "Baras"
+                ],
+                "type": "normalDate"
+            },
+            "4": {
+                "data": [
+                    "Teras"
+                ],
+                "type": "normalDate"
+            },
+            "5": {
+                "data": [
+                    "Chaudas"
+                ],
+                "type": "normalDate"
+            },
+            "6": {
+                "data": [
+                    "./static/GunatitSwami.png"
+                ],
+                "type": "imageDate"
+            },
+            "7": {
+                "data": [
+                    "Padvo"
+                ],
+                "type": "normalDate"
+            },
+            "8": {
+                "data": [
+                    "./static/AYMLogo.png"
+                ],
+                "type": "imageDate"
+            },
+            "9": {
+                "data": [],
+                "type": "templeDate"
+            },
+            "10": {
+                "data": [
+                    "Trij"
+                ],
+                "type": "normalDate"
+            },
+            "11": {
+                "data": [
+                    "Choth"
+                ],
+                "type": "normalDate"
+            },
+            "12": {
+                "data": [
+                    "Pancham",
+                    "Swami Vivekanand Jayanti"
+                ],
+                "type": "multipleDate"
+            },
+            "13": {
+                "data": [
+                    "Chhath"
+                ],
+                "type": "normalDate"
+            },
+            "14": {
+                "data": [
+                    "./static/kite.png"
+                ],
+                "type": "imageDate"
+            },
+            "15": {
+                "data": [
+                    "Aatham"
+                ],
+                "type": "normalDate"
+            },
+            "16": {
+                "data": [
+                    "Nom"
+                ],
+                "type": "normalDate"
+            },
+            "17": {
+                "data": [
+                    "Dasham"
+                ],
+                "type": "normalDate"
+            },
+            "18": {
+                "data": [
+                    "Ekadashi",
+                    "Shattila Ekadashi"
+                ],
+                "type": "multipleDate"
+            },
+            "19": {
+                "data": [
+                    "Baras"
+                ],
+                "type": "normalDate"
+            },
+            "20": {
+                "data": [
+                    "Teras"
+                ],
+                "type": "normalDate"
+            },
+            "21": {
+                "data": [
+                    "Amas"
+                ],
+                "type": "normalDate"
+            },
+            "22": {
+                "data": [
+                    "Padvo"
+                ],
+                "type": "normalDate"
+            },
+            "23": {
+                "data": [
+                    "./static/yogijiMaharaj.png"
+                ],
+                "type": "imageDate"
+            },
+            "24": {
+                "data": [
+                    "Trij"
+                ],
+                "type": "normalDate"
+            },
+            "25": {
+                "data": [
+                    "Choth"
+                ],
+                "type": "normalDate"
+            },
+            "26": {
+                "data": [
+                    "./static/shastrijiMaharaj.png"
+                ],
+                "type": "imageDate"
+            },
+            "27": {
+                "data": [
+                    "Chhath"
+                ],
+                "type": "normalDate"
+            },
+            "28": {
+                "data": [
+                    "Satam"
+                ],
+                "type": "normalDate"
+            }
+        }
+    }
+}
