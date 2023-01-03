@@ -182,7 +182,7 @@
             const day = today.getDate();
             const month = today.getMonth() ; // January is 0
             const year = today.getFullYear();
-            document.getElementById("BelowDate").innerHTML = day + " - " + (month+1) + " - " + year
+            document.getElementById("BelowDate").innerHTML = day.toString() + " - " + (month+1).toString() + " - " + year.toString()
             previousElement = element
         }
         function selectToday()
@@ -194,7 +194,7 @@
             todayDate = document.getElementById((parseInt(day).toString()+"/"+monthNames[month]+"/"+year.toString()).toString())
             todayDate.classList.toggle("border-white")
             todayDate.classList.add("border-[#f79433]")
-            document.getElementById("BelowDate").innerHTML = day + " - " + (month+1) + " - " + year
+            document.getElementById("BelowDate").innerHTML = day.toString() + " - " + (month+1).toString() + " - " + year.toString()
             changeData(todayDate)
             element.classList.toggle("border-slate-800")
             todayDate.classList.add("border-[#f79433]")
