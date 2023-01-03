@@ -39,11 +39,7 @@
             <button onclick="selectToday()" class="bg-blue-200 px-5 text-blue-800 rounded-md border border-blue-800">Today</button>
         </div>
         <div id="eventContainer" class="relative h-full">
-            <div class="rounded-lg border border-l-[6px] border-slate-500 shadow-lg mx-5 py-1 px-3 mt-3">3 - Posh Sud Baras</div>
-            <div class="rounded-lg border border-l-[6px] border-orange-400 shadow-lg mx-5 py-1 px-3 mt-2">3 - Posh Sud Baras</div>
-            <div class="rounded-lg border border-l-[6px] border-orange-400 shadow-lg mx-5 py-1 px-3 mt-2">3 - Posh Sud Baras</div>
-            <div class="rounded-lg border border-l-[6px] border-blue-500 shadow-lg mx-5 py-1 px-3 mt-2">3 - Posh Sud Baras</div>
-            <div class="rounded-lg border border-l-[6px] border-blue-500 shadow-lg mx-5 py-1 px-3 mt-2">3 - Posh Sud Baras</div>
+            
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
@@ -87,11 +83,11 @@
                     endEmpty = data[year][month]["endEmpty"];
                     let counter = startEmpty;
                     let emptyConsider = 0;
-                    html+='<div class="flex flex-nowrap justify-between gap-1">'
+                    html+='<div class="flex flex-nowrap justify-between gap-1 mt-1">'
                     for (const date in data[year][month]) {
                         if(counter==7)
                         {
-                            html+='</div><div class="flex flex-nowrap justify-between gap-1">'
+                            html+='</div><div class="flex flex-nowrap justify-between gap-1 mt-1">'
                             counter=0
                         }
                         if(emptyConsider==0)
@@ -164,9 +160,14 @@
         const month = today.getMonth() ; // January is 0
         const year = today.getFullYear();
         window.onload = function(){
-            document.getElementById((parseInt(day).toString()+"/"+monthNames[month]+"/"+year.toString()).toString()).classList.toggle("border-white")
-            document.getElementById((parseInt(day).toString()+"/"+monthNames[month]+"/"+year.toString()).toString()).classList.add("border-[#f79433]")
+            todayDate = document.getElementById((parseInt(day).toString()+"/"+monthNames[month]+"/"+year.toString()).toString())
+            todayDate.classList.toggle("border-white")
+            todayDate.classList.add("border-[#f79433]")
             document.getElementById("BelowDate").innerHTML = day + " - " + (month+1) + " - " + year
+            changeData(todayDate)
+            element.classList.toggle("border-slate-800")
+            todayDate.classList.add("border-[#f79433]")
+            previousElement = ""
         };
         swiper.slideTo(month);
         previousElement = ""
@@ -180,11 +181,11 @@
             element.classList.toggle("border-white")
             element.classList.toggle("border-slate-800")
             tempData = element.id.split("/")
-            events = CalenderData[tempData[2]][tempData[1]][tempData[0]]["data"]
+            events = CalenderData[tempData[2]][tempData[1]][tempData[0]]["events"]
             html = ""
             for(const i in events)
             {
-                html += event.replace("%%Color%%","orange-400").replace("%%Event%%",events[i])
+                html += event.replace("%%Color%%",events[i]["color"]).replace("%%Event%%",events[i]["name"])
             }
             document.getElementById("eventContainer").innerHTML = html
             const today = new Date(element.id);
@@ -196,7 +197,6 @@
         }
         function selectToday()
         {
-            document.getElementsByClassName("border-[#f79433]")[0].click()
             document.getElementsByClassName("border-[#f79433]")[0].click()
             swiper.slideTo(month);
         }
