@@ -159,16 +159,6 @@
         const day = today.getDate();
         const month = today.getMonth() ; // January is 0
         const year = today.getFullYear();
-        window.onload = function(){
-            todayDate = document.getElementById((parseInt(day).toString()+"/"+monthNames[month]+"/"+year.toString()).toString())
-            todayDate.classList.toggle("border-white")
-            todayDate.classList.add("border-[#f79433]")
-            document.getElementById("BelowDate").innerHTML = day + " - " + (month+1) + " - " + year
-            changeData(todayDate)
-            element.classList.toggle("border-slate-800")
-            todayDate.classList.add("border-[#f79433]")
-            previousElement = ""
-        };
         swiper.slideTo(month);
         previousElement = ""
         function changeData(element)
@@ -200,6 +190,16 @@
             document.getElementsByClassName("border-[#f79433]")[0].click()
             swiper.slideTo(month);
         }
+        window.onload = function(){
+            todayDate = document.getElementById((parseInt(day).toString()+"/"+monthNames[month]+"/"+year.toString()).toString())
+            todayDate.classList.toggle("border-white")
+            todayDate.classList.add("border-[#f79433]")
+            document.getElementById("BelowDate").innerHTML = day + " - " + (month+1) + " - " + year
+            changeData(todayDate)
+            element.classList.toggle("border-slate-800")
+            todayDate.classList.add("border-[#f79433]")
+            previousElement = ""
+        };
     </script>
 </body>
 </html>
