@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haridham Calender</title>
-    <link rel="icon" type="image/x-icon" href="./static/SHA_logo.png">
-    <script src="./static/tailwind.js"></script>
+    <link rel="icon" type="image/x-icon" href="./assets/SHA_logo.png">
+    <script src="./assets/tailwind.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
 </head>
 <body style="font-family: sans-serif;" class="scroller overflow-x-hidden w-screen h-screen bg-white dark:bg-slate-700 transition-all duration-700">
     <div id="loadingScreen" class="h-screen w-screen absolute top-0 left-0 z-50 bg-white transition-all duration-200">
-        <img class="h-full w-full object-cover" src="./static/loading.png" alt="">
+        <img class="h-full w-full object-cover" src="./assets/loading.png" alt="">
     </div>
     <div id="colorInfo" onclick="colorMenu()" class="h-screen w-screen absolute top-0 left-0 z-40 bg-black/50 opacity-0 -translate-y-full transition-all duration-200">
         <div onclick="colorMenu()" class="h-fit w-[70%] mx-[15%] mt-32 pb-3 border-2 border-slate-400 rounded-lg absolute top-0 left-0 z-40 bg-white dark:bg-slate-900 shadow-xl transition-all duration-200">
@@ -70,7 +70,7 @@
         var emptyDate = "<div class=\"w-full\"></div>";
         var normalDate = "<div id=\"%%FullDate%%\" data-date=\"%%SmallDate%%\" onclick=\"changeData(this)\" class=\"w-full text-center inline-block align-middle h-20 border-2 border-white dark:border-slate-700 rounded-lg hover:border-slate-800 dark:hover:border-white transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 dark:text-white overflow-hidden text-clip bg-%%Color%%\"><div class=\"font-bold text-xl\">%%Date%%</div><div class=\"text-xs text-slate-500 dark:text-slate-400\">%%Day%%</div></div>";
         var multipleDate = "<div id=\"%%FullDate%%\" data-date=\"%%SmallDate%%\" onclick=\"changeData(this)\" class=\"w-full text-center inline-block align-middle h-20 border-2 border-white dark:border-slate-700 rounded-lg hover:border-slate-800 dark:hover:border-white transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 dark:text-white overflow-hidden text-clip bg-%%Color%%\"><div class=\"font-bold text-xl\">%%Date%%</div><div class=\"text-xs text-slate-500 dark:text-slate-400\">%%Day%%</div><div class=\"text-[8px] leading-3 text-blue-500\">%%Event%%</div></div>";
-        var templeDate = "<div id=\"%%FullDate%%\" data-date=\"%%SmallDate%%\" onclick=\"changeData(this)\" class=\"w-full text-center inline-block align-middle h-20 border-2 border-white dark:border-slate-700 rounded-lg hover:border-slate-800 dark:hover:border-white transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 dark:text-white overflow-hidden text-clip bg-%%Color%%\"><div class=\"font-bold text-xl\">%%Date%%</div><img src=\"./static/SHA_logo.png\" class=\"p-1 h-auto w-10  mx-auto\"></div>";
+        var templeDate = "<div id=\"%%FullDate%%\" data-date=\"%%SmallDate%%\" onclick=\"changeData(this)\" class=\"w-full text-center inline-block align-middle h-20 border-2 border-white dark:border-slate-700 rounded-lg hover:border-slate-800 dark:hover:border-white transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 dark:text-white overflow-hidden text-clip bg-%%Color%%\"><div class=\"font-bold text-xl\">%%Date%%</div><img src=\"./assets/SHA_logo.png\" class=\"p-1 h-auto w-10  mx-auto\"></div>";
         var imageDate = "<div id=\"%%FullDate%%\" data-date=\"%%SmallDate%%\" onclick=\"changeData(this)\" class=\"w-full text-center inline-block align-middle h-20 border-2 border-white dark:border-slate-700 rounded-lg hover:border-slate-800 dark:hover:border-white transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 dark:text-white overflow-hidden text-clip bg-%%Color%%\"><div class=\"font-bold text-xl\">%%Date%%</div><img src=\"%%Url%%\" class=\"p-1 h-auto w-10  mx-auto\"></div>";
         var eventDate = "<div class=\"rounded-lg border border-l-[6px] border-%%Color%% text-black dark:text-white shadow-lg mx-5 py-1 px-3 mt-3\">%%Event%%</div>";
         var CalenderData = "";
@@ -97,7 +97,7 @@
             localStorage.theme = 'light'
         }
         
-        fetch("./static/data.json")
+        fetch("./assets/data.json")
             .then(response => response.json())
             .then(data => {
             CalenderData = data;
