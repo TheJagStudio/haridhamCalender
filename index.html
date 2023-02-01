@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>Haridham Calender</title>
-    <link rel="icon" type="image/x-icon" href="./assets/SHA_logo.png">
-    <script src="./assets/tailwind.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/assets/SHA_logo.png">
+    <script src="/assets/tailwind.js"></script>
+    <script src="/assets/fileSaver.js"></script>
     <style>
         .scroller {
             -ms-overflow-style: none;  /* Internet Explorer 10+ */
@@ -18,11 +16,14 @@
         .scroller::-webkit-scrollbar { 
             display: none;  /* Safari and Chrome */
         }
+        body::-webkit-scrollbar { 
+            display: none;  /* Safari and Chrome */
+        }
     </style>
 </head>
 <body style="font-family: sans-serif;" class="scroller overflow-x-hidden w-screen h-screen bg-white dark:bg-slate-700 transition-all duration-700">
     <div id="loadingScreen" class="h-screen w-screen absolute top-0 left-0 z-50 bg-white transition-all duration-200">
-        <img class="h-full w-full object-cover" src="./assets/loading.png" alt="">
+        <img class="h-full w-full object-cover" src="/assets/loading.png" alt="">
     </div>
     <div id="colorInfo" onclick="colorMenu()" class="h-screen w-screen absolute top-0 left-0 z-40 bg-black/50 opacity-0 -translate-y-full transition-all duration-200">
         <div onclick="colorMenu()" class="h-fit w-[70%] mx-[15%] mt-32 pb-3 border-2 border-slate-400 rounded-lg absolute top-0 left-0 z-40 bg-white dark:bg-slate-900 shadow-xl transition-all duration-200">
@@ -32,26 +33,26 @@
             <h1 class="border-2 border-blue-400 mx-3 px-2 py-1 text-black dark:text-white rounded-lg mb-1">Mandir Festival</h1>
             <h1 class="border-2 border-orange-400 mx-3 px-2 py-1 text-black dark:text-white rounded-lg mb-1">Government Festival</h1>
             <h1 class="border-4 border-orange-600 mx-3 px-2 py-1 text-black dark:text-white rounded-lg mb-1">Today</h1>
-            <h1 class="border-2 border-black dark:border-white mx-3 px-2 py-1 text-black dark:text-white rounded-lg mb-1">Today</h1>
+            <h1 class="border-2 border-black dark:border-white mx-3 px-2 py-1 text-black dark:text-white rounded-lg mb-1">Selected Date</h1>
         </div>
     </div>
-    <div class="bg-[#f79433] dark:bg-slate-900 h-14 sticky top-0 z-40 shadow-xl mb-3">
+    <div class="bg-[#f79433] dark:bg-slate-900 h-28 pt-14 sticky top-0 z-40 shadow-xl mb-3 transition-all duration-700">
         <h1 class="text-white font-bold text-2xl w-full text-center pt-3">Haridham Calender</h1>
-        <svg onclick="colorMenu()" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="absolute top-3 left-2" viewBox="0 0 16 16">
+        <svg onclick="colorMenu()" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="absolute top-16 left-2" viewBox="0 0 16 16">
             <path stroke="white" fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
         </svg>
-        <button onclick="themeChanger()" type="button" data-toggle-dark="light" class="absolute right-2 top-3 items-center p-2 mr-2 text-xs font-medium text-gray-700 rounded-lg bg-gray-100 hover:text-blue-700 focus:z-10  dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+        <button onclick="themeChanger()" type="button" data-toggle-dark="light" class="absolute right-2 top-16 items-center p-2 mr-2 text-xs font-medium text-gray-700 rounded-lg bg-gray-100 hover:text-blue-700 focus:z-10  dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
             <svg aria-hidden="true" data-toggle-icon="moon" class="w-4 h-4 block dark:hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
             <svg aria-hidden="true" data-toggle-icon="sun" class="w-4 h-4 hidden dark:block" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
             <span class="sr-only">Toggle dark/light mode</span>
         </button>
     </div>
-    <div class="swiper mySwiper scroller overflow-hidden w-screen">
+    <div style="z-index: 1;" class="scroller swiper mySwiper scroller overflow-hidden w-screen mb-2">
         <div id="CalenderContainer" class="swiper-wrapper flex">
         </div>
     </div>
     <hr>
-    <div class="w-full h-fit pb-5">
+    <div style="z-index: 999;" class="w-full h-fit pb-5 bg-white dark:bg-slate-700 transition-all duration-700">
         <div class="flex flex-nowrap justify-between py-3 mx-5">
             <button class="bg-red-200 px-5 text-red-800 rounded-md border border-red-800">Info</button>
             <h1 id="BelowDate" class="font-thin text-xl dark:text-white">3 - 1 - 2023</h1>
@@ -61,17 +62,17 @@
             
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="/assets/swiper.js"></script>
     <!-- Initialize Swiper -->
     <script>
         var swiper = new Swiper(".mySwiper", {});
     </script>
     <script>
         var emptyDate = "<div class=\"w-full\"></div>";
-        var normalDate = "<div id=\"%%FullDate%%\" data-date=\"%%SmallDate%%\" onclick=\"changeData(this)\" class=\"w-full text-center inline-block align-middle h-20 border-2 border-white dark:border-slate-700 rounded-lg hover:border-slate-800 dark:hover:border-white transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 dark:text-white overflow-hidden text-clip bg-%%Color%%\"><div class=\"font-bold text-xl\">%%Date%%</div><div class=\"text-xs text-slate-500 dark:text-slate-400\">%%Day%%</div></div>";
-        var multipleDate = "<div id=\"%%FullDate%%\" data-date=\"%%SmallDate%%\" onclick=\"changeData(this)\" class=\"w-full text-center inline-block align-middle h-20 border-2 border-white dark:border-slate-700 rounded-lg hover:border-slate-800 dark:hover:border-white transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 dark:text-white overflow-hidden text-clip bg-%%Color%%\"><div class=\"font-bold text-xl\">%%Date%%</div><div class=\"text-xs text-slate-500 dark:text-slate-400\">%%Day%%</div><div class=\"text-[8px] leading-3 text-blue-500\">%%Event%%</div></div>";
-        var templeDate = "<div id=\"%%FullDate%%\" data-date=\"%%SmallDate%%\" onclick=\"changeData(this)\" class=\"w-full text-center inline-block align-middle h-20 border-2 border-white dark:border-slate-700 rounded-lg hover:border-slate-800 dark:hover:border-white transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 dark:text-white overflow-hidden text-clip bg-%%Color%%\"><div class=\"font-bold text-xl\">%%Date%%</div><img src=\"./assets/SHA_logo.png\" class=\"p-1 h-auto w-10  mx-auto\"></div>";
-        var imageDate = "<div id=\"%%FullDate%%\" data-date=\"%%SmallDate%%\" onclick=\"changeData(this)\" class=\"w-full text-center inline-block align-middle h-20 border-2 border-white dark:border-slate-700 rounded-lg hover:border-slate-800 dark:hover:border-white transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 dark:text-white overflow-hidden text-clip bg-%%Color%%\"><div class=\"font-bold text-xl\">%%Date%%</div><img src=\"%%Url%%\" class=\"p-1 h-auto w-10  mx-auto\"></div>";
+        var normalDate = "<div id=\"%%FullDate%%\" data-date=\"%%SmallDate%%\" onclick=\"changeData(this)\" class=\"transition-all duration-700 w-full text-center truncate px-1 inline-block align-middle h-20 border-2 border-white dark:border-slate-700 rounded-lg hover:border-slate-800 dark:hover:border-white transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 dark:text-white overflow-hidden bg-%%Color%%\"><div class=\"font-bold text-xl\">%%Date%%</div><div class=\"text-xs text-slate-500 dark:text-slate-400 truncate\">%%Day%%</div></div>";
+        var multipleDate = "<div id=\"%%FullDate%%\" data-date=\"%%SmallDate%%\" onclick=\"changeData(this)\" class=\"transition-all duration-700 w-full text-center truncate px-1 inline-block align-middle h-20 border-2 border-white dark:border-slate-700 rounded-lg hover:border-slate-800 dark:hover:border-white transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 dark:text-white overflow-hidden bg-%%Color%%\"><div class=\"font-bold text-xl\">%%Date%%</div><div class=\"text-xs text-slate-500 dark:text-slate-400 truncate\">%%Day%%</div><div class=\"text-[8px] leading-3 text-blue-500 truncate\">%%Event%%</div></div>";
+        var templeDate = "<div id=\"%%FullDate%%\" data-date=\"%%SmallDate%%\" onclick=\"changeData(this)\" class=\"transition-all duration-700 w-full text-center truncate px-1 inline-block align-middle h-20 border-2 border-white dark:border-slate-700 rounded-lg hover:border-slate-800 dark:hover:border-white transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 dark:text-white overflow-hidden bg-%%Color%%\"><div class=\"font-bold text-xl\">%%Date%%</div><img src=\"/assets/SHA_logo.png\" class=\"p-1 h-auto w-10  mx-auto\"></div>";
+        var imageDate = "<div id=\"%%FullDate%%\" data-date=\"%%SmallDate%%\" onclick=\"changeData(this)\" class=\"transition-all duration-700 w-full text-center truncate px-1 inline-block align-middle h-20 border-2 border-white dark:border-slate-700 rounded-lg hover:border-slate-800 dark:hover:border-white transition-all duration-200 max-h-fit py-1 text-auto text-slate-800 dark:text-white overflow-hidden bg-%%Color%%\"><div class=\"font-bold text-xl\">%%Date%%</div><img src=\"%%Url%%\" class=\"p-1 h-auto w-10  mx-auto\"></div>";
         var eventDate = "<div class=\"rounded-lg border border-l-[6px] border-%%Color%% text-black dark:text-white shadow-lg mx-5 py-1 px-3 mt-3\">%%Event%%</div>";
         var CalenderData = "";
         let monthNames = ["January", "February", "March","April", "May", "June", "July","August", "September", "October","November", "December"];
@@ -97,46 +98,102 @@
             localStorage.theme = 'light'
         }
         
-        fetch("./assets/data.json")
-            .then(response => response.json())
-            .then(data => {
-            CalenderData = data;
-            for (let year in data) {
-                for (let month in data[year]) {
-                    let html ="";
-                    html+="<div id=\"+month+\" class=\"swiper-slide\"><div class=\"w-full mt-2\"><h1 class=\"w-full text-center align-middle py-1-xl font-bold text-slate-800 dark:text-white\">"+month+" "+year+"</h1><h1 class=\"w-full text-center align-middle py-1-sm text-slate-500 dark:text-white/50\">"+data[year][month]["GujName"]+"</h1></div><div class=\"mt-3 w-screen flex-none\"><div class=\"w-full px-3\"><div class=\"flex flex-no wrap w-full justify-between\"><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Mon</div><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Tue</div><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Wed</div><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Thu</div><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Fri</div><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Sat</div><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Sun</div></div>";
-                    totalDay = data[year][month]["days"];
-                    startEmpty = data[year][month]["startEmpty"];
-                    endEmpty = data[year][month]["endEmpty"];
-                    let counter = startEmpty;
-                    let emptyConsider = 0;
-                    html+="<div class=\"flex flex-nowrap justify-between gap-1 mt-1\">";
-                    for (let date in data[year][month]) {
-                        if(counter==7)
-                        {
-                            html+="</div><div class=\"flex flex-nowrap justify-between gap-1 mt-1\">";
-                            counter=0;
-                        }
-                        if(emptyConsider==0)
-                        {
-                            for(i=0;i<startEmpty;i++)
+        function online()
+        {
+            fetch("https://thejagstudio.github.io/haridhamCalender/assets/data.json")
+                .then(response => response.json())
+                .then(data => {
+                CalenderData = data;
+                document.getElementById("CalenderContainer").innerHTML = ""
+                for (let year in data) {
+                    for (let month in data[year]) {
+                        let html ="";
+                        html+="<div id=\"+month+\" class=\"swiper-slide\"><div class=\"w-full mt-2\"><h1 class=\"w-full text-center align-middle py-1-xl font-bold text-slate-800 dark:text-white\">"+month+" "+year+"</h1><h1 class=\"w-full text-center align-middle py-1-sm text-slate-500 dark:text-white/50\">"+data[year][month]["GujName"]+"</h1></div><div class=\"mt-3 w-screen flex-none\"><div class=\"w-full px-3\"><div class=\"flex flex-no wrap w-full justify-between\"><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Mon</div><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Tue</div><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Wed</div><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Thu</div><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Fri</div><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Sat</div><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Sun</div></div>";
+                        totalDay = data[year][month]["days"];
+                        startEmpty = data[year][month]["startEmpty"];
+                        endEmpty = data[year][month]["endEmpty"];
+                        let counter = startEmpty;
+                        let emptyConsider = 0;
+                        html+="<div class=\"flex flex-nowrap justify-between gap-1 mt-1\">";
+                        for (let date in data[year][month]) {
+                            if(counter==7)
                             {
-                                html+=emptyDate;
+                                html+="</div><div class=\"flex flex-nowrap justify-between gap-1 mt-1\">";
+                                counter=0;
                             }
-                            emptyConsider=1;
-                        }
-                        if (!isNaN(date)){
-                            if(data[year][month][date]["type"]=="normalDate")
+                            if(emptyConsider==0)
                             {
-                                if(data[year][month][date]["data"][0]=="Ekadashi")
+                                for(i=0;i<startEmpty;i++)
                                 {
-                                    html+=normalDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","orange-200").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("dark:text-slate-400","dark:text-slate-500");
+                                    html+=emptyDate;
                                 }
-                                else if (data[year][month][date]["data"][0]=="Amas")
+                                emptyConsider=1;
+                            }
+                            if (!isNaN(date)){
+                                if(data[year][month][date]["type"]=="normalDate")
                                 {
-                                    html+=normalDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","slate-200 dark:bg-slate-500").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]);
+                                    if(data[year][month][date]["data"][0]=="Ekadashi")
+                                    {
+                                        html+=normalDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","orange-200").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("dark:text-slate-400","dark:text-slate-500");
+                                    }
+                                    else if (data[year][month][date]["data"][0]=="Amas")
+                                    {
+                                        html+=normalDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","slate-200 dark:bg-slate-500").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]);
+                                    }
+                                    else
+                                    {
+                                        tempFlag = 0
+                                        for(let i in data[year][month][date]["events"])
+                                        {
+                                            if(data[year][month][date]["events"][i]["color"]=="orange-400")
+                                            {
+                                                tempFlag = 1
+                                                break
+                                            }
+                                        }
+                                        if(tempFlag == 1)
+                                        {
+                                            html+=normalDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("border-white dark:border-slate-700","border-orange-400 dark:border-orange-400");
+                                        }
+                                        else
+                                        {
+                                            html+=normalDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]);
+                                        }
+                                        
+                                    }
                                 }
-                                else
+                                else if(data[year][month][date]["type"]=="multipleDate")
+                                {
+                                    if(data[year][month][date]["data"][0]=="Ekadashi")
+                                    {
+                                        html+=multipleDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","orange-200").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("%%Event%%",data[year][month][date]["data"][1]).replace("dark:text-slate-400","dark:text-slate-500").replace("dark:text-white","dark:text-slate-800");
+                                    }
+                                    else if (data[year][month][date]["data"][0]=="Amas")
+                                    {
+                                        html+=multipleDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","slate-200 dark:bg-slate-500").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("%%Event%%",data[year][month][date]["data"][1]);
+                                    }
+                                    else
+                                    {
+                                        tempFlag = 0
+                                        for(let i in data[year][month][date]["events"])
+                                        {
+                                            if(data[year][month][date]["events"][i]["color"]=="orange-400")
+                                            {
+                                                tempFlag = 1
+                                                break
+                                            }
+                                        }
+                                        if(tempFlag == 1)
+                                        {
+                                            html+=multipleDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("%%Event%%",data[year][month][date]["data"][1]).replace("border-white dark:border-slate-700","border-orange-400 dark:border-orange-400");
+                                        }
+                                        else
+                                        {
+                                            html+=multipleDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("%%Event%%",data[year][month][date]["data"][1]);
+                                        }
+                                    }
+                                }
+                                else if(data[year][month][date]["type"]=="imageDate")
                                 {
                                     tempFlag = 0
                                     for(let i in data[year][month][date]["events"])
@@ -149,26 +206,14 @@
                                     }
                                     if(tempFlag == 1)
                                     {
-                                        html+=normalDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("border-white dark:border-slate-700","border-orange-400 dark:border-orange-400");
+                                        html+=imageDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("%%Url%%",data[year][month][date]["data"][0]).replace("border-white dark:border-slate-700","border-orange-400 dark:border-orange-400");
                                     }
                                     else
                                     {
-                                        html+=normalDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]);
+                                        html+=imageDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("%%Url%%",data[year][month][date]["data"][0]);
                                     }
-                                    
                                 }
-                            }
-                            else if(data[year][month][date]["type"]=="multipleDate")
-                            {
-                                if(data[year][month][date]["data"][0]=="Ekadashi")
-                                {
-                                    html+=multipleDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","orange-200").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("%%Event%%",data[year][month][date]["data"][1]).replace("dark:text-slate-400","dark:text-slate-500").replace("dark:text-white","dark:text-slate-800");
-                                }
-                                else if (data[year][month][date]["data"][0]=="Amas")
-                                {
-                                    html+=multipleDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","slate-200 dark:bg-slate-500").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("%%Event%%",data[year][month][date]["data"][1]);
-                                }
-                                else
+                                else if(data[year][month][date]["type"]=="templeDate")
                                 {
                                     tempFlag = 0
                                     for(let i in data[year][month][date]["events"])
@@ -181,74 +226,186 @@
                                     }
                                     if(tempFlag == 1)
                                     {
-                                        html+=multipleDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("%%Event%%",data[year][month][date]["data"][1]).replace("border-white dark:border-slate-700","border-orange-400 dark:border-orange-400");
+                                        html+=templeDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("border-white dark:border-slate-700","border-orange-400 dark:border-orange-400");
                                     }
                                     else
                                     {
-                                        html+=multipleDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("%%Event%%",data[year][month][date]["data"][1]);
+                                        html+=templeDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date));
                                     }
-                                }
-                            }
-                            else if(data[year][month][date]["type"]=="imageDate")
-                            {
-                                tempFlag = 0
-                                for(let i in data[year][month][date]["events"])
-                                {
-                                    if(data[year][month][date]["events"][i]["color"]=="orange-400")
-                                    {
-                                        tempFlag = 1
-                                        break
-                                    }
-                                }
-                                if(tempFlag == 1)
-                                {
-                                    html+=imageDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("%%Url%%",data[year][month][date]["data"][0]).replace("border-white dark:border-slate-700","border-orange-400 dark:border-orange-400");
                                 }
                                 else
                                 {
-                                    html+=imageDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("%%Url%%",data[year][month][date]["data"][0]);
+                                    console.log("Invalid");
                                 }
+                                counter++;
                             }
-                            else if(data[year][month][date]["type"]=="templeDate")
-                            {
-                                tempFlag = 0
-                                for(let i in data[year][month][date]["events"])
-                                {
-                                    if(data[year][month][date]["events"][i]["color"]=="orange-400")
-                                    {
-                                        tempFlag = 1
-                                        break
-                                    }
-                                }
-                                if(tempFlag == 1)
-                                {
-                                    html+=templeDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("border-white dark:border-slate-700","border-orange-400 dark:border-orange-400");
-                                }
-                                else
-                                {
-                                    html+=templeDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date));
-                                }
-                            }
-                            else
-                            {
-                                console.log("Invalid");
-                            }
-                            counter++;
+                            
                         }
-                        
+                        for(i=0;i<endEmpty;i++)
+                        {
+                            html+=emptyDate;
+                        }
+                        html+="</div></div></div>";
+                        document.getElementById("CalenderContainer").innerHTML+=html;
                     }
-                    for(i=0;i<endEmpty;i++)
-                    {
-                        html+=emptyDate;
-                    }
-                    html+="</div></div></div>";
-                    document.getElementById("CalenderContainer").innerHTML+=html;
                 }
-            }
-        });
-        
-        
-        
+            });
+        }
+        function offline()
+        {
+            fetch("/assets/data.json")
+                .then(response => response.json())
+                .then(data => {
+                CalenderData = data;
+                document.getElementById("CalenderContainer").innerHTML = ""
+                for (let year in data) {
+                    for (let month in data[year]) {
+                        let html ="";
+                        html+="<div id=\"+month+\" class=\"swiper-slide\"><div class=\"w-full mt-2\"><h1 class=\"w-full text-center align-middle py-1-xl font-bold text-slate-800 dark:text-white\">"+month+" "+year+"</h1><h1 class=\"w-full text-center align-middle py-1-sm text-slate-500 dark:text-white/50\">"+data[year][month]["GujName"]+"</h1></div><div class=\"mt-3 w-screen flex-none\"><div class=\"w-full px-3\"><div class=\"flex flex-no wrap w-full justify-between\"><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Mon</div><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Tue</div><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Wed</div><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Thu</div><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Fri</div><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Sat</div><div class=\"w-full text-center text-blue-500 dark:text-blue-400 font-bold text-lg\">Sun</div></div>";
+                        totalDay = data[year][month]["days"];
+                        startEmpty = data[year][month]["startEmpty"];
+                        endEmpty = data[year][month]["endEmpty"];
+                        let counter = startEmpty;
+                        let emptyConsider = 0;
+                        html+="<div class=\"flex flex-nowrap justify-between gap-1 mt-1\">";
+                        for (let date in data[year][month]) {
+                            if(counter==7)
+                            {
+                                html+="</div><div class=\"flex flex-nowrap justify-between gap-1 mt-1\">";
+                                counter=0;
+                            }
+                            if(emptyConsider==0)
+                            {
+                                for(i=0;i<startEmpty;i++)
+                                {
+                                    html+=emptyDate;
+                                }
+                                emptyConsider=1;
+                            }
+                            if (!isNaN(date)){
+                                if(data[year][month][date]["type"]=="normalDate")
+                                {
+                                    if(data[year][month][date]["data"][0]=="Ekadashi")
+                                    {
+                                        html+=normalDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","orange-200").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("dark:text-slate-400","dark:text-slate-500");
+                                    }
+                                    else if (data[year][month][date]["data"][0]=="Amas")
+                                    {
+                                        html+=normalDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","slate-200 dark:bg-slate-500").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]);
+                                    }
+                                    else
+                                    {
+                                        tempFlag = 0
+                                        for(let i in data[year][month][date]["events"])
+                                        {
+                                            if(data[year][month][date]["events"][i]["color"]=="orange-400")
+                                            {
+                                                tempFlag = 1
+                                                break
+                                            }
+                                        }
+                                        if(tempFlag == 1)
+                                        {
+                                            html+=normalDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("border-white dark:border-slate-700","border-orange-400 dark:border-orange-400");
+                                        }
+                                        else
+                                        {
+                                            html+=normalDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]);
+                                        }
+                                        
+                                    }
+                                }
+                                else if(data[year][month][date]["type"]=="multipleDate")
+                                {
+                                    if(data[year][month][date]["data"][0]=="Ekadashi")
+                                    {
+                                        html+=multipleDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","orange-200").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("%%Event%%",data[year][month][date]["data"][1]).replace("dark:text-slate-400","dark:text-slate-500").replace("dark:text-white","dark:text-slate-800");
+                                    }
+                                    else if (data[year][month][date]["data"][0]=="Amas")
+                                    {
+                                        html+=multipleDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","slate-200 dark:bg-slate-500").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("%%Event%%",data[year][month][date]["data"][1]);
+                                    }
+                                    else
+                                    {
+                                        tempFlag = 0
+                                        for(let i in data[year][month][date]["events"])
+                                        {
+                                            if(data[year][month][date]["events"][i]["color"]=="orange-400")
+                                            {
+                                                tempFlag = 1
+                                                break
+                                            }
+                                        }
+                                        if(tempFlag == 1)
+                                        {
+                                            html+=multipleDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("%%Event%%",data[year][month][date]["data"][1]).replace("border-white dark:border-slate-700","border-orange-400 dark:border-orange-400");
+                                        }
+                                        else
+                                        {
+                                            html+=multipleDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("%%Day%%",data[year][month][date]["data"][0]).replace("%%Event%%",data[year][month][date]["data"][1]);
+                                        }
+                                    }
+                                }
+                                else if(data[year][month][date]["type"]=="imageDate")
+                                {
+                                    tempFlag = 0
+                                    for(let i in data[year][month][date]["events"])
+                                    {
+                                        if(data[year][month][date]["events"][i]["color"]=="orange-400")
+                                        {
+                                            tempFlag = 1
+                                            break
+                                        }
+                                    }
+                                    if(tempFlag == 1)
+                                    {
+                                        html+=imageDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("%%Url%%",data[year][month][date]["data"][0]).replace("border-white dark:border-slate-700","border-orange-400 dark:border-orange-400");
+                                    }
+                                    else
+                                    {
+                                        html+=imageDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("%%Url%%",data[year][month][date]["data"][0]);
+                                    }
+                                }
+                                else if(data[year][month][date]["type"]=="templeDate")
+                                {
+                                    tempFlag = 0
+                                    for(let i in data[year][month][date]["events"])
+                                    {
+                                        if(data[year][month][date]["events"][i]["color"]=="orange-400")
+                                        {
+                                            tempFlag = 1
+                                            break
+                                        }
+                                    }
+                                    if(tempFlag == 1)
+                                    {
+                                        html+=templeDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date)).replace("border-white dark:border-slate-700","border-orange-400 dark:border-orange-400");
+                                    }
+                                    else
+                                    {
+                                        html+=templeDate.replace(/%%FullDate%%/g,date+"/"+month+"/"+year).replace("%%SmallDate%%",(monthNames.indexOf(month)+1).toString()+"/"+date+"/"+year).replace("%%Color%%","transparent").replace("%%Date%%",Number(date));
+                                    }
+                                }
+                                else
+                                {
+                                    console.log("Invalid");
+                                }
+                                counter++;
+                            }
+                            
+                        }
+                        for(i=0;i<endEmpty;i++)
+                        {
+                            html+=emptyDate;
+                        }
+                        html+="</div></div></div>";
+                        document.getElementById("CalenderContainer").innerHTML+=html;
+                    }
+                }
+            });
+        }
+        window.navigator.onLine ?  online() : offline()
+
         function changeData(element)
         {
             if(previousElement!="")
@@ -319,11 +476,11 @@
             todayDate = document.getElementById((parseInt(day).toString()+"/"+monthNames[month]+"/"+year.toString()).toString());
             document.getElementById("BelowDate").innerHTML = parseInt(day).toString() + " - " + (month+1).toString() + " - " + year.toString();
             changeData(todayDate);
-            todayDate.classList.toggle("dark:border-orange-600");
-            todayDate.classList.toggle("dark:border-4");
-            todayDate.classList.remove("border-slate-800");
-            todayDate.classList.toggle("border-orange-600");
-            todayDate.classList.toggle("border-4");
+            // todayDate.classList.toggle("dark:border-[#f79433]");
+            // todayDate.classList.toggle("dark:border-4");
+            // todayDate.classList.remove("border-slate-800");
+            todayDate.classList.add("border-[#f79433]");
+            todayDate.classList.add("border-4");
             previousElement = "";
         },2000)
         setTimeout(function()
