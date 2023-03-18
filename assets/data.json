@@ -71,7 +71,7 @@
             },
             "6": {
                 "data": [
-                    "./assets/GunatitSwami.png"
+                    "/assets/GunatitSwami.png"
                 ],
                 "events": [
                     {
@@ -103,7 +103,7 @@
             },
             "8": {
                 "data": [
-                    "./assets/AYMLogo.png"
+                    "/assets/AYMLogo.png"
                 ],
                 "events": [
                     {
@@ -186,7 +186,7 @@
             },
             "14": {
                 "data": [
-                    "./assets/kite.png"
+                    "/assets/kite.png"
                 ],
                 "events": [
                     {
@@ -311,7 +311,7 @@
             },
             "23": {
                 "data": [
-                    "./assets/yogijiMaharaj.png"
+                    "/assets/yogijiMaharaj.png"
                 ],
                 "events": [
                     {
@@ -355,7 +355,7 @@
             },
             "26": {
                 "data": [
-                    "./assets/shastrijiMaharaj.png"
+                    "/assets/shastrijiMaharaj.png"
                 ],
                 "events": [
                     {
@@ -407,7 +407,7 @@
             },
             "29": {
                 "data": [
-                    "./assets/gopalanadSwami.png"
+                    "/assets/gopalanadSwami.png"
                 ],
                 "events": [
                     {
@@ -680,7 +680,7 @@
             },
             "18": {
                 "data": [
-                    "./assets/shiv.png"
+                    "/assets/shiv.png"
                 ],
                 "events": [
                     {
@@ -696,7 +696,7 @@
             },
             "19": {
                 "data": [
-                    "./assets/shastrijiMaharaj.png"
+                    "/assets/shastrijiMaharaj.png"
                 ],
                 "events": [
                     {
@@ -900,7 +900,7 @@
             },
             "6": {
                 "data": [
-                    "./assets/bhagatji.png"
+                    "/assets/bhagatji.png"
                 ],
                 "events": [
                     {
@@ -1214,7 +1214,7 @@
             },
             "30": {
                 "data": [
-                    "./assets/maharaj.png"
+                    "/assets/maharaj.png"
                 ],
                 "events": [
                     {
